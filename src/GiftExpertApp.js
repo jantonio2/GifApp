@@ -1,21 +1,22 @@
 import React, { useState } from 'react'
+import { AddCategory } from './components/AddCategory'
 
 export const GiftExpertApp = () => {
 
-  // const categories = ['One Punch', 'Smuria X', 'Dragon Ball']
   const [categories, setCategories] = useState(['One Punch', 'Smuria X', 'Dragon Ball'])
   
-  const handleAdd = () => {
-    // setCategories([...categories, 'Game of Thrones']);
-    setCategories(categs => [...categs, 'Game of Thrones']);
-  };
+  // const handleAdd = () => {
+  //   // setCategories([...categories, 'Game of Thrones']);
+  //   setCategories(categs => [...categs, 'Game of Thrones']);
+  // };
   
   return (
     <>
       <h2>GiftExpertApp</h2>
-      <hr />
+      
+      <AddCategory />
 
-      <button onClick={handleAdd}>Agregar</button>
+      <hr />
 
       <ol>
         {
