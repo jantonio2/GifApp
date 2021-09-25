@@ -4,7 +4,12 @@ exports[`Prueba en el componente GifGridItem debe de mostrar el componente corre
 <div
   className="card animate__animated animate__fadeIn"
 >
-  <img />
-  <p />
+  <img
+    alt="Game of Thrones"
+    src="https://localhost"
+  />
+  <p>
+    Game of Thrones
+  </p>
 </div>
 `;
