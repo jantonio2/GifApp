@@ -7,13 +7,11 @@ export const AddCategory = ({setCategories}) => {
   
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-
-    console.log("handleInputChange llamado");
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log('Submit hecho');
+    console.log('Submit hecho', inputValue);
     if(inputValue !== undefined && inputValue.trim().length > 2){
       setCategories(categs => [inputValue, ...categs]);
       setInputValue('');

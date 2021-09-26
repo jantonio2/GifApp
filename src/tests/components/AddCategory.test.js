@@ -3,8 +3,13 @@ import { AddCategory } from '../../components/AddCategory';
 
 describe('Pruebas en <AddCategory />', () => {
 
-  const setCategories = () => {};
-  const wrapper = shallow(<AddCategory setCategories = {setCategories}/>);
+  const setCategories = jest.fn();
+  let wrapper = shallow(<AddCategory setCategories = {setCategories}/>);
+  
+  beforeEach(() => {
+    jest.clearAllMocks();
+    wrapper = shallow(<AddCategory setCategories = {setCategories}/>);
+  });
 
   test('debe de mostrarse correctamente', () => {
     expect(wrapper).toMatchSnapshot();
@@ -17,7 +22,12 @@ describe('Pruebas en <AddCategory />', () => {
     input.simulate('change', { target: {value} });
 
     expect(wrapper.find('p').text().trim()).toBe(value);
-  })
+  });
   
+  test('no debe de postear la información con submit', () => {
+    wrapper.find('form').simulate('submit', { preventDefault(){} });
+    
+    expect(setCategories).not.toHaveBeenCalled();
+  });
   
 });
